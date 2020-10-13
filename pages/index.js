@@ -9,7 +9,6 @@ const Home = () => (
       <PhotoGalery photos={photos} />
     </main>
 
-    <footer></footer>
   </div>
 );
 

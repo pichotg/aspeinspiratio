@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 
 class PhotoGalery extends Component {
   constructor(props) {
@@ -17,24 +17,37 @@ class PhotoGalery extends Component {
 
   render() {
     return (
-      <div className="photo-grid">
-        <button onClick={this.shufflePhoto}></button>
-        {this.state.photos.map((photo, idx) => (
-          <Photo photo={photo} />
-        ))}
+      <div>
+        <button onClick={this.shufflePhoto}>Shuffle Gallery</button>
+        <div className="photo-grid">
+          {this.state.photos.map((photo, idx) => (
+            <Photo photo={photo} />
+          ))}
+        </div>
       </div>
     );
   }
 }
 
 const Photo = (props) => {
+  const [isOpen, setisOpen] = useState("none");
   return (
     <div>
       <div
         className={"card " + props.photo.shape}
         style={{ backgroundImage: `url('${props.photo.src}')` }}
+        onClick={() => setisOpen("block")}
       >
         <div className="description">{props.photo.author}</div>
+      </div>
+
+      <div
+        style={{ display: isOpen }}
+        className="modal"
+        onClick={() => setisOpen("none")}
+      >
+        <span className="close">&times;</span>
+        <img className="modal-content" src={props.photo.src}></img>
       </div>
     </div>
   );
