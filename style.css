@@ -43,6 +43,10 @@ body {
   background-position: center;
   background-repeat: no-repeat; 
 }
+.card:hover > .description {
+  visibility: visible;
+  opacity: 1;
+}
 
 .card:hover {
   box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em,
@@ -50,7 +54,7 @@ body {
   transform: translateY(-3px) scale(1.1);
 }
 
-/* .description {
+.description {
   position: absolute;
   padding: 10px;
   top: 0;
@@ -61,13 +65,9 @@ body {
   color: #fff;
   visibility: hidden;
   opacity: 0;
-
-  transition: opacity .2s, visibility .2s;
+  /* transition: opacity .2s, visibility .2s; */
 }
-.card:hover .description {
-  visibility: visible;
-  opacity: 1;
-} */
+
 
 /* Medium screens */
 @media screen and (min-width: 600px) {
