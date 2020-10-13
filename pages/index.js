@@ -1,12 +1,13 @@
-import Head from "next/head";
 import { photos } from "../photos";
 
 var sectionStyle = (url) => {
   return { backgroundImage: `url('${url}')` };
 };
 
-var photoGalery = photos.map((photo) => (
-  <div className="card" style={sectionStyle(photo.src)}>
+const shuffleArray = arr => arr.sort(() => Math.random() - 0.5);
+
+var photoGalery = shuffleArray(photos).map((photo) => (
+  <div className={"card "+photo.shape} style={sectionStyle(photo.src)}>
     <div className="description">{photo.author}</div>
   </div>
 ));
@@ -14,6 +15,7 @@ var photoGalery = photos.map((photo) => (
 const Home = () => (
   <div className="container">
     <main>
+      <h1>Aspe inspiration</h1>
       <div className="photo-grid">{photoGalery}</div>
     </main>
 
