@@ -21,7 +21,7 @@ class PhotoGalery extends Component {
         <button onClick={this.shufflePhoto}>Shuffle Gallery</button>
         <div className="photo-grid">
           {this.state.photos.map((photo, idx) => (
-            <Photo photo={photo} />
+            <Photo photo={photo} idx={idx} />
           ))}
         </div>
       </div>
@@ -32,15 +32,12 @@ class PhotoGalery extends Component {
 const Photo = (props) => {
   const [isOpen, setisOpen] = useState("none");
   return (
-    <div>
-      <div
-        className={"card " + props.photo.shape}
-        style={{ backgroundImage: `url('${props.photo.src}')` }}
-        onClick={() => setisOpen("block")}
-      >
-        <div className="description">{props.photo.author}</div>
-      </div>
-
+    <div
+      className={"card " + props.photo.shape}
+      style={{ backgroundImage: `url('${props.photo.src}')` }}
+      onClick={() => setisOpen("block")}
+    >
+      <div className="description">{props.photo.author}</div>
       <div
         style={{ display: isOpen }}
         className="modal"

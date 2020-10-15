@@ -16,6 +16,7 @@ export const photos = [
   {
     src: "/images/tumbler04.jpg",
     author: "Raphael Zarka",
+    shape : "tall"
   },
   {
     src: "/images/tumbler05.jpg",
