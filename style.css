@@ -87,7 +87,7 @@ a {
 }
 
 /* Medium screens */
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 700px) {
   .tall {
     grid-row: span 2 / auto;
   }
