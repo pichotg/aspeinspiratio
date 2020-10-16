@@ -9,9 +9,11 @@ const Home = () => {
     <div className="container">
       <header className="navbar">
         <div className="navbar__title navbar__item">Aspe inspiration</div>
-        <div className="navbar__item">instagram</div>
         <div onClick={shuffle} className="navbar__item">
           Shuffle Gallery
+        </div>
+        <div className="navbar__item">
+          <a href="https://www.instagram.com/todaspe/">Instagram</a>
         </div>
       </header>
       <div>
