@@ -2,14 +2,15 @@ import { photos } from "../photos";
 import { useState } from "react";
 
 const Home = () => {
-  const [photosList, setPhotos] = useState(photos);
-  const shuffle = () =>
-    setPhotos([...photosList].sort(() => Math.random() - 0.5));
+  const shuffle = (arr) => {
+    return [...arr].sort(() => Math.random() - 0.5);
+  };
+  const [photosList, setPhotos] = useState(shuffle(photos));
   return (
     <div className="container">
       <header className="navbar">
         <div className="navbar__title navbar__item">Aspe inspiration</div>
-        <div onClick={shuffle} className="navbar__item">
+        <div onClick={()=>{setPhotos(shuffle(photosList))}} className="navbar__item">
           Shuffle Gallery
         </div>
         <div className="navbar__item">
