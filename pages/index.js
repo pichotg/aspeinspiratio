@@ -14,14 +14,14 @@ const Home = () => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <header className="navbar">
-        <div className="navbar__title navbar__item">Aspe inspiration</div>
+        <div className="navbar__title navbar__item">Aspeinspiratio</div>
         <div
           onClick={() => {
             setPhotos(shuffle(photosList));
           }}
           className="navbar__item"
         >
-          Shuffle Gallery
+          Random
         </div>
         <div className="navbar__item">
           <a href="https://www.instagram.com/todaspe/">Instagram</a>
