@@ -56,6 +56,7 @@ const Photo = (props) => {
       >
         <span className="close">&times;</span>
         <img className="modal-content" src={props.photo.src}></img>
+        <div id="caption">{props.photo.author}</div>
       </div>
     </>
   );
