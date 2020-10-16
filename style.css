@@ -15,21 +15,10 @@ body {
 
   margin-right: 10%;
   margin-left: 10%;
+
+  margin-top: 20px;
 }
 
-button {
-  background-color: #353535; /* Green */
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-}
 
 .card {
   display: flex;
@@ -104,6 +93,7 @@ button {
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  cursor: pointer;
 }
 
 /* Modal Content (Image) */
@@ -156,8 +146,27 @@ button {
 }
 
 /* 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 700px){
+@media only screen and (max-width: 600px){
   .modal-content {
     width: 100%;
   }
+}
+
+.navbar {
+  display: flex;
+  align-items: center;  
+  color: white;
+}
+
+.navbar__title {
+  margin-right: auto;
+  font-size: 150%;
+  padding: 12px 16px;
+}
+
+.navbar__item {
+  padding: 16px 16px;
+  cursor: pointer;
+  vertical-align: middle;
+  text-decoration: none;
 }
