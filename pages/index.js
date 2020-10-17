@@ -1,4 +1,3 @@
-// import { photos } from "../photos";
 import { useState, useEffect } from "react";
 import Head from "next/head";
 import getPhotos from "../utils/api";
