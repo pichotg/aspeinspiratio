@@ -58,14 +58,31 @@ const Home = () => {
 
 const Photo = (props) => {
   const [isOpen, setisOpen] = useState("none");
+  const [source, setSource] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    const img = new Image();
+    img.src = props.photo.src;
+    img.onload = () => {
+      setSource(props.photo.src);
+      setLoading(false);
+    };
+  }, []);
+
   return (
     <>
       <div
         className={"card " + props.photo.shape}
-        style={{ backgroundImage: `url('${props.photo.src}')` }}
+        style={{ backgroundImage: `url('${source}')` }}
         onClick={() => setisOpen("block")}
       >
-        <div className="description">{props.photo.author}</div>
+        {loading ? (
+          <div class="loader"></div>
+        ) : (
+          <div className="description">{props.photo.author}</div>
+        )}
       </div>
       <div
         style={{ display: isOpen }}
@@ -73,7 +90,7 @@ const Photo = (props) => {
         onClick={() => setisOpen("none")}
       >
         <span className="close">&times;</span>
-        <img className="modal-content" src={props.photo.src}></img>
+        <img className="modal-content" src={source}></img>
         <div id="caption">{props.photo.author}</div>
       </div>
     </>
