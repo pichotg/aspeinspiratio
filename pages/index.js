@@ -7,9 +7,12 @@ const Home = () => {
     return [...arr].sort(() => Math.random() - 0.5);
   };
   const [photos, setPhotos] = useState([]);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
+    setLoading(true);
     getPhotos().then((data) => {
       setPhotos(shuffle(data));
+      setLoading(false);
     });
   }, []);
 
@@ -34,11 +37,20 @@ const Home = () => {
         </div>
       </header>
       <div>
-        <div className="photo-grid">
-          {photos.map((photo, idx) => (
-            <Photo photo={photo} key={idx} />
-          ))}
-        </div>
+        {loading ? (
+          <>
+            <div className="arc"></div>
+            <h1>
+              <span>LOADING</span>
+            </h1>
+          </>
+        ) : (
+          <div className="photo-grid">
+            {photos.map((photo, idx) => (
+              <Photo photo={photo} key={idx} />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

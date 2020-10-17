@@ -19,11 +19,6 @@ export default async function getPhotos() {
       author: post.summary,
       shape: photoShape(photo.width, photo.height),
     });
-    console.log({
-      photo: photo,
-      author: post.summary,
-      shape: photoShape(photo.width, photo.height),
-    });
   });
 
   //api get by 20
