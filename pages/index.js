@@ -21,7 +21,7 @@ const Home = () => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <header className="navbar">
-        <div className="navbar__title navbar__item">Aspe inspiration</div>
+        <div className="navbar__title navbar__item">Aspeinspiratio</div>
         <div
           onClick={() => {
             setPhotos(shuffle(photos));
