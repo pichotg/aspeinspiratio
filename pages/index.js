@@ -7,11 +7,10 @@ const Home = () => {
   const shuffle = (arr) => {
     return [...arr].sort(() => Math.random() - 0.5);
   };
-  const [loading, setLoading] = useState(false);
   const [photos, setPhotos] = useState([]);
   useEffect(() => {
     getPhotos().then((data) => {
-      setPhotos(data);
+      setPhotos(shuffle(data));
     });
   }, []);
 
@@ -29,7 +28,7 @@ const Home = () => {
           }}
           className="navbar__item"
         >
-          Shuffle Gallery
+          Random
         </div>
         <div className="navbar__item">
           <a href="https://www.instagram.com/todaspe/">Instagram</a>
