@@ -1,23 +1,31 @@
-import { photos } from "../photos";
-import { useState } from "react";
+// import { photos } from "../photos";
+import { useState, useEffect } from "react";
 import Head from "next/head";
+import getPhotos from "../utils/api";
 
 const Home = () => {
   const shuffle = (arr) => {
     return [...arr].sort(() => Math.random() - 0.5);
   };
-  const [photosList, setPhotos] = useState(shuffle(photos));
+  const [loading, setLoading] = useState(false);
+  const [photos, setPhotos] = useState([]);
+  useEffect(() => {
+    getPhotos().then((data) => {
+      setPhotos(data);
+    });
+  }, []);
+
   return (
     <div className="container">
       <Head>
-        <title>Aspe inspiration</title>
+        <title>Aspeinspiratio</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <header className="navbar">
         <div className="navbar__title navbar__item">Aspe inspiration</div>
         <div
           onClick={() => {
-            setPhotos(shuffle(photosList));
+            setPhotos(shuffle(photos));
           }}
           className="navbar__item"
         >
@@ -29,7 +37,7 @@ const Home = () => {
       </header>
       <div>
         <div className="photo-grid">
-          {photosList.map((photo, idx) => (
+          {photos.map((photo, idx) => (
             <Photo photo={photo} key={idx} />
           ))}
         </div>
